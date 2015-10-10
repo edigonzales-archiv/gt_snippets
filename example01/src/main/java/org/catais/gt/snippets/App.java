@@ -44,6 +44,7 @@ public class App
 
         //this will basically read 4 tiles worth of data at once from the disk...
         ParameterValue<String> gridsize = AbstractGridFormat.SUGGESTED_TILE_SIZE.createValue();
+        gridsize.setValue("512,512"); // best performance when size does match with blocksize of tiff?
 
         //Setting read type: use JAI ImageRead (true) or ImageReaders read methods (false)
         ParameterValue<Boolean> useJaiRead = AbstractGridFormat.USE_JAI_IMAGEREAD.createValue();
