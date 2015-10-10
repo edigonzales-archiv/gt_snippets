@@ -1,0 +1,2 @@
+ mvn archetype:generate -DgroupId=org.catais.gt.snippets -DartifactId=example01 -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart
+ 
