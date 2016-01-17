@@ -49,6 +49,9 @@ public class App
         ImageMosaicFormat format = new ImageMosaicFormat();
         ImageMosaicReader reader = format.getReader(file);
         
+        endTime = System.currentTimeMillis();
+        System.out.println("Opening Reader took " + (endTime - startTime) + " milliseconds");
+
 //    	System.out.println(reader.getCoordinateReferenceSystem());
 //    	System.out.println(reader.getFormat());
 //    	System.out.println(reader.getOriginalEnvelope());
@@ -182,7 +185,20 @@ public class App
 //		System.out.println(coverage.getProperties().keySet());
 //		System.out.println(coverage.getProperties());
 
-		
+        endTime = System.currentTimeMillis();
+        System.out.println("Reading value from ImageMosaic took " + (endTime - startTime) + " milliseconds");
+
+        
+        coverage = reader.read(new GeneralParameterValue[]{gg, policy, gridsize, useJaiRead, maxAllowedTiles, allowMultithreading, backgroundValues});
+		point = new Point2D.Double(x, y);
+		res = new double[1];
+		coverage.evaluate(point, res);
+		System.out.println(res[0]);
+
+        endTime = System.currentTimeMillis();
+        System.out.println("Reading value from ImageMosaic took " + (endTime - startTime) + " milliseconds");
+
+        
         System.out.println( "Hello World!" );
     }
 }
